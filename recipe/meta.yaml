@@ -12,6 +12,7 @@ source:
 build:
   entry_points:
     - ydata_profiling = ydata_profiling.controller.console:main
+    - pandas_profiling = ydata_profiling.controller.console:main
   script: {{ PYTHON }} -m pip install . -vv --no-deps
   number: 0
   skip: True   #  [py<37]
