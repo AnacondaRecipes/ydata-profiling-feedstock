@@ -48,8 +48,10 @@ requirements:
     # type checking
     - typeguard >=2.13.2,<3
     - imagehash ==4.3.1
-    - wordcloud >=1.8.2.2
-    - dacite >=1.6
+    - wordcloud >=1.9.1
+    - dacite >=1.8
+    - ipywidgets >=7.5.1
+    - pillow
   run_constrained:
     - jupyter-client >=5.3.4
     - jupyter-core >=4.6.3
