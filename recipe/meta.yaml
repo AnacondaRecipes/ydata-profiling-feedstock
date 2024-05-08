@@ -15,7 +15,8 @@ build:
     - pandas_profiling = ydata_profiling.controller.console:main
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   number: 0
-  skip: True   #  [py<37]
+  # numba is not available on s390x
+  skip: True   #  [py<37 or s390x]
 
 requirements:
   host:
