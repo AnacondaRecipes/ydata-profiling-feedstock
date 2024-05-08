@@ -1,0 +1,3 @@
+channels:
+  - https://staging.continuum.io/prefect/fs/typeguard-feedstock/pr3/5bfe470
+  - https://staging.continuum.io/prefect/fs/typing_extensions-feedstock/pr19/86c40a7
