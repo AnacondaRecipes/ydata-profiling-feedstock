@@ -15,7 +15,7 @@ build:
     - ydata_profiling = ydata_profiling.controller.console:main
     - pandas_profiling = ydata_profiling.controller.console:main
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<37]
+  skip: True  # [py<37 or py>312]
 
 requirements:
   host:
