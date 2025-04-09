@@ -8,18 +8,21 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ydata-profiling-{{ version }}.tar.gz
   sha256: 4aa0d6412a140194396e34f5ffd348223f0319d877b0243e765f30ae633ed51e
+  patches:
+    - patches/0001-fix-scm-version.patch
 
 build:
   number: 0
   entry_points:
     - ydata_profiling = ydata_profiling.controller.console:main
     - pandas_profiling = ydata_profiling.controller.console:main
-  script_env:
-    - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: True  # [py<37 or py>312]
 
 requirements:
+  build:
+    - patch  # [not win]
+    - m2-patch  # [win]
   host:
     - python
     - pip
