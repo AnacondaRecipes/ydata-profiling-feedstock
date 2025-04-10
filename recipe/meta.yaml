@@ -9,6 +9,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ydata-profiling-{{ version }}.tar.gz
   sha256: 4aa0d6412a140194396e34f5ffd348223f0319d877b0243e765f30ae633ed51e
   patches:
+    # REMEMBER TO UPDATE THE VERSION NUMBER IN THE PATCH FILE:
     - patches/0001-fix-scm-version.patch
 
 build:
