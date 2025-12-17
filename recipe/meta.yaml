@@ -1,24 +1,24 @@
 {% set name = "ydata-profiling" %}
-{% set version = "4.16.1" %}
+{% set version = "4.18.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ydata-profiling-{{ version }}.tar.gz
-  sha256: 4aa0d6412a140194396e34f5ffd348223f0319d877b0243e765f30ae633ed51e
+  url: https://pypi.org/packages/source/y/ydata-profiling/ydata_profiling-4.18.0.tar.gz
+  sha256: c3a0afd82e605c6903dd140b5fc41dabad8ee690601ad3d6c27da28e80b07cc6
 
 build:
   number: 0
   entry_points:
     - ydata_profiling = ydata_profiling.controller.console:main
     - pandas_profiling = ydata_profiling.controller.console:main
-  script: 
+  script:
     - echo {{ version }} > ${SRC_DIR}/VERSION  # [not win]
     - echo {{ version }} > "%SRC_DIR%\VERSION"  # [win]
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<37 or py>312]
+  skip: true  # [py<37 or py>312]
 
 requirements:
   host:
@@ -29,38 +29,45 @@ requirements:
     - wheel >=0.38.4,<1.0.0
   run:
     - python
-    - scipy >=1.4.1,<1.16
-    - pandas >1.1,<3,!=1.4.0
-    - matplotlib-base >=3.5,<3.10
-    - pydantic >=2
-    - pyyaml >=5.0.0,<6.1
-    - jinja2 >=2.11.1,<3.2
+    - scipy >=1.8,<1.17
+    - pandas >1.5,<3.0,!=1.4.0
+    - matplotlib-base >=3.5,<=3.10
+    - pydantic >=2,<3
+    - pyyaml >=6.0.3,<6.1
+    - jinja2 >=3.1.6,<3.2
     - visions >=0.7.5,<0.8.2
-    - imagehash
+    - imagehash ==4.3.2
     - pillow
-    - numpy >=1.16.0,<2.2
+    - numpy >=1.22,<2.4
     # Related to HTML report
     - htmlmin 0.1.12
     # Correlations
-    - phik >=0.11.1,<0.13
+    - phik >=0.12.5,<0.13
     # Examples
-    - requests >=2.24.0,<3
+    - requests >=2.32.0,<3
     # Progress bar
-    - tqdm >=4.48.2,<5
+    - tqdm >=4.66.3,<5
     - seaborn >=0.10.1,<0.14
     - multimethod >=1.4,<2
     # metrics
     - statsmodels >=0.13.2,<1
     # type checking
-    - typeguard >=3,<5
+    - typeguard >=4,<5
     - imagehash 4.3.1
-    - wordcloud >=1.9.3
-    - dacite >=1.8
-    - numba >=0.56.0,<=0.61
+    - wordcloud >=1.9.4
+    - dacite >=1.9,<2
+    - numba >=0.60,<0.63
+    - minify-html >=0.15.0
+    - filetype >=1.0.0
   run_constrained:
     - jupyter >=1.0.0
     - ipywidgets >=7.5.1
-    - tangled-up-in-unicode 0.2.0
+    - tangled-up-in-unicode ==0.2.0
+    - pyspark >=4.0
+    - pyarrow >=4.0.0
+    - pandas >1.1
+    - numpy >=1.16.0
+    - visions >=0.7.5,<0.7.7
 
 test:
   imports:
