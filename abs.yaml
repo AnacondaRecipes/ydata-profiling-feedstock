@@ -1,6 +1,3 @@
-build_env_vars:
-  ANACONDA_ROCKET_ENABLE_PY314 : yes
-
 channels:
   - https://staging.continuum.io/pbp/fs/dacite-feedstock/pr3/6de8132
   - https://staging.continuum.io/pbp/fs/imagehash-feedstock/pr3/cc2ecb7

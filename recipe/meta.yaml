@@ -18,7 +18,7 @@ build:
     - echo {{ version }} > ${SRC_DIR}/VERSION  # [not win]
     - echo {{ version }} > "%SRC_DIR%\VERSION"  # [win]
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<310 or py>314]
+  skip: True  # [py<310 or py>313]
 
 requirements:
   host:
