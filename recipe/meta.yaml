@@ -81,7 +81,7 @@ about:
     Data Analysis (EDA) experience in a consistent and fast solution.
     Like pandas df.describe() function, that is so handy, ydata-profiling
     delivers an extended analysis of a DataFrame while allowing the data
-    analysis to be exported in different formats such as html and json.
+    analysis to be exported in different formats such as html and json
   license: MIT
   license_family: MIT
   license_file: LICENSE
