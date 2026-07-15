@@ -1,5 +1,5 @@
 {% set name = "ydata-profiling" %}
-{% set version = "4.18.0" %}
+{% set version = "4.18.4" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
-  sha256: c3a0afd82e605c6903dd140b5fc41dabad8ee690601ad3d6c27da28e80b07cc6
+  sha256: c19a0b3dec081da024d18800ffcee0160b076edecef66ca55c75e00e6ac15e21
 
 build:
   number: 0
@@ -35,7 +35,12 @@ requirements:
     - pydantic >=2,<3
     - PyYAML >=6.0.3,<6.1
     - jinja2 >=3.1.6,<3.2
+    # visions[type_image_path]>=0.7.5, <0.8.2
+    # https://github.com/dylan-profiler/visions/blob/v0.8.1/pyproject.toml#L38
     - visions >=0.7.5,<0.8.2
+    # type_image_path:
+    - pillow
+    - puremagic
     - numpy >=1.22,<2.4
     # Could be optional
     # Related to HTML report
@@ -58,9 +63,16 @@ requirements:
     - dacite >=1.9,<2
     - numba >=0.60,<0.63
   run_constrained:
+    # spark
+    - pyspark >=4.0
+    - pyarrow >=4.0.0
+    # notebook
     - jupyter >=1.0.0
     - ipywidgets >=7.5.1
+    # unicode
     - tangled-up-in-unicode ==0.2.0
+    # ModuleNotFoundError: No module named 'pkg_resources'
+    - setuptools <82
 
 test:
   imports:
