@@ -63,8 +63,13 @@ requirements:
     - dacite >=1.9,<2
     - numba >=0.60,<0.63
   run_constrained:
+    # spark
+    - pyspark >=4.0
+    - pyarrow >=4.0.0
+    # notebook
     - jupyter >=1.0.0
     - ipywidgets >=7.5.1
+    # unicode
     - tangled-up-in-unicode ==0.2.0
     # ModuleNotFoundError: No module named 'pkg_resources'
     - setuptools <82
